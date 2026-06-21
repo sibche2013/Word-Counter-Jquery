@@ -56,4 +56,8 @@ You can test the live version of this project here:
 ---
 👨‍💻 **Developer:** Amin Arjmand  
 🌐 **Website:** [aminarjmand.com](https://aminarjmand.com)  
-⭐️ *If you found this tool useful, please give it a star! / اگر این ابزار برای شما مفید بود، لطفا با دادن ستاره از آن حمایت کنید!*
+
+
+
+---
+⭐️ *If you found this dashboard layout useful, please give this repository a star! / اگر این داشبورد برای شما مفید بود، لطفا با دادن ستاره از آن حمایت کنید!*
