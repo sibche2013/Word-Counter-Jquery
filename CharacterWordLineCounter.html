@@ -2,72 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Online Word & Character & Line jQuery Counter</title>
-    <meta name="description" content="Online Word & Character & Line jQuery Counter | محاسبه تعداد کاراکتر ، حروف ، کلمات و خط ها با جی کوئری"/>
-    <script src="jquery-1.12.4.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Word & Character & Line Counter | شمارنده آنلاین کلمات و کاراکترها</title>
+    <meta name="description" content="Online Word, Character, and Line Counter using jQuery | محاسبه آنلاین تعداد کاراکتر، حروف، کلمات و خطوط با جی‌کوئری"/>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/vazirmatn-font-face.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+
     <style>
+        /* Developed by Amin Arjmand
+        Site: aminarjmand.com | GitHub: @sibche2013 
+        */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            text-align: center;
+            font-family: 'Inter', 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #333333;
             padding: 20px;
-            background-color: #f1f1f1;
+            gap: 20px;
         }
 
-        .board, button {
-            display: block;
-            padding: 15px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            background-color: rgb(0, 200, 81);
-            cursor: pointer;
-            font-size: 1em;
-        }
-
-        .board:hover, button:hover {
-            transition: 0.2s;
-            box-shadow: inset 0 0 50px #1c8a1f;
-        }
-        button {
-            background-color: rgb(255, 200, 0);
-            margin: auto;
-            border-radius: 30px 3px;
-        }
-
-        button:hover {
-            box-shadow: inset 0 20px 50px rgb(255, 165, 0);
-        }
-        .blue{
-            display: block;
-             padding: 15px;
-             margin: 5px;
-             border: none;
-             border-radius: 5px;
-             background-color: rgb(0, 160, 255);
-             cursor: pointer;
-             font-size: 1.1em;
-            text-align: left;
-            color:white;
-        }
-        textarea#textbox {
-            width:60%;
+        .board {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.06);
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
         }
 
         #text {
-            font-size: 25px;
-            font-weight: bold;
-            color: white;
-            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        textarea#textbox {
+            width: 100%;
+            height: 180px;
+            padding: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        textarea#textbox:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.1);
+        }
+
+        .counter {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .counter-card {
+            background: rgb(255, 255, 255);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .counter-card span {
+            font-weight: 600;
+            color: #3498db;
+            float: right;
+        }
+
+        .backTo {
+            font-family: inherit;
+            font-size: 0.9rem;
+            padding: 10px 24px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 30px;
+            color: #555555;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .backTo:hover {
+            background: #3498db;
+            color: #ffffff;
+            border-color: #3498db;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
+
 <div class="board">
-    <p id="text">Online Word & Character & Line jQuery Counter</p>
-<textarea name="" id="textbox" cols="20" rows="10">
-</textarea>
+    <p id="text">Word & Character Counter</p>
+    <textarea id="textbox" placeholder="Type or paste your text here... / متن خود را اینجا وارد کنید..."></textarea>
+    
+    <div class="counter">
+        <div class="counter-card">Words <span>0</span></div>
+        <div class="counter-card">Lines <span>0</span></div>
+        <div class="counter-card">Characters (with space) <span>0</span></div>
+        <div class="counter-card">Characters (no space) <span>0</span></div>
+    </div>
 </div>
-<div class="counter"></div>
-<button onclick="history.back();">Back To Previous Page</button>
-    <script src="CharacterWordLineCounter.js"></script>
+
+<button class="backTo" onclick="history.back();">← Back To Previous Page</button>
+
+<script src="CharacterWordLineCounter.js"></script>
 </body>
 </html>
