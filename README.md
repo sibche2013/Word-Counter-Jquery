@@ -2,11 +2,11 @@
 
 <p align="center">
   <a target="_blank" href="http://demo.aminarjmand.com/Word-Counter-Jquery/">
-    <img src="https://img.shields.io/badge/Live_Demo-Click_To_View-blue?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Demo" />
+    <img src="https://img.shields.io/badge/Live_Demo-⚡_Launch_Project-blue?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Demo" />
   </a>
   &nbsp;&nbsp;
   <a target="_blank" href="http://demo.aminarjmand.com/Word-Counter-Jquery/">
-    <img src="https://img.shields.io/badge/پیش_نمایش_زنده-کلیک_کنید-green?style=for-the-badge" alt="پیش نمایش زنده" />
+    <img src="https://img.shields.io/badge/GitHub_Pages-Active-success?style=for-the-badge&logo=github" alt="GitHub Pages" />
   </a>
 </p>
 
