@@ -59,5 +59,9 @@ You can test the live version of this project here:
 
 
 
+
 ---
-⭐️ *If you found this dashboard layout useful, please give this repository a star! / اگر این داشبورد برای شما مفید بود، لطفا با دادن ستاره از آن حمایت کنید!*
+⭐️ *If you found this dashboard layout useful, please give this repository a star! 
+
+⭐️ *اگر این مخزن برای شما مفید بود، لطفا با دادن ستاره از آن حمایت کنید!
+
